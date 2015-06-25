@@ -11,7 +11,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ArtskydJ/"
+    "url": "https://github.com/ArtskydJ/tape-results"
   },
   "scripts": {
     "test": "node test/assert-server.js pass && node test/assert-server.js fail"
