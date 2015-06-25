@@ -1,7 +1,7 @@
 tape-results
 =========
 
-Get the tap output from tape in your console, and exit with an appropriate exit code
+Get the tap output from tape in your console, and exit with an appropriate exit code.
 
 [![Build Status](https://travis-ci.org/ArtskydJ/tape-results.svg)](https://travis-ci.org/ArtskydJ/tape-results)
 [![Dependency Status](https://david-dm.org/artskydj/tape-results.svg)](https://david-dm.org/artskydj/tape-results)
@@ -57,8 +57,6 @@ When tape is finished on the browser, `server.close()` and `process.exit()` are 
 With [npm](http://nodejs.org/download) do:
 
 	npm install tape-results
-
-Made to work in the browser using [browserify](https://github.com/substack/node-browserify).
 
 # license
 
