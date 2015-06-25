@@ -32,6 +32,9 @@ var ecstatic = require('ecstatic')
 var server = results()
 var requestHandler = ecstatic(__dirname + '/public' )
 server.on('request', requestHandler)
+
+var addr = server.address()
+console.log('Server listening on ' + addr.address + ':' addr.port)
 ```
 
 # api
