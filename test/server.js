@@ -2,7 +2,9 @@ var browserify = require('browserify')
 var fs = require('fs')
 var results = require('../index.js')
 var spawn  = require('child_process').spawn
-var chrome = require('chrome-location') || 'phantomjs'
+var browser = require('chrome-location') || require('firefox-location')
+
+if (!browser) throw new Error('No browser found!')
 
 var clientTestFile = process.argv[2]
 if (!clientTestFile) throw new Error('no test file provided')
@@ -18,5 +20,5 @@ browserify(clientTestFile).bundle(function (err, buf) {
 		res.end(html)
 	})
 
-	spawn(chrome, ['http://localhost:' + port + '/'])
+	spawn(browser, ['http://localhost:' + port + '/'])
 })
