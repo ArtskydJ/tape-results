@@ -1,0 +1,11 @@
+TAP version 13
+# zero
+not ok 1 one
+  ---
+    operator: fail
+  ...
+
+1..1
+# tests 1
+# pass  0
+# fail  1

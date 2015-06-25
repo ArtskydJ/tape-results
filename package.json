@@ -14,7 +14,7 @@
     "url": "https://github.com/ArtskydJ/"
   },
   "scripts": {
-    "test": "node test/server.js"
+    "test": "node test/assert-server.js pass && node test/assert-server.js fail"
   },
   "dependencies": {
     "shoe": "0.0.15",
