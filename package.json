@@ -1,6 +1,6 @@
 {
   "name": "tape-results",
-  "version": "",
+  "version": "0.0.1",
   "main": "./index.js",
   "browser": "./browser.js",
   "author": {
