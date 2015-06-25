@@ -52,6 +52,28 @@ The `server` object returned is an [`http.Server`](https://nodejs.org/api/http.h
 
 When tape is finished on the browser, `server.close()` and `process.exit()` are called.
 
+# travis
+
+When using with travis, [you have to use firefox and xvfb](http://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-GUI-(e.g.-a-Web-browser)).
+
+Add this to your `.travis.yml` file:
+
+```yml
+before_install:
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+```
+
+Then, in your server code, add this:
+
+```js
+var spawn  = require('child_process').spawn
+var firefox = require('firefox-location')
+if (!firefox) throw new Error('Firefox was not found!')
+
+spawn(firefox, ['http://localhost:' + port + '/'])
+```
+
 # install
 
 With [npm](http://nodejs.org/download) do:
