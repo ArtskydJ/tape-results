@@ -1,0 +1,28 @@
+{
+  "name": "tape-results",
+  "version": "",
+  "main": "./index.js",
+  "browser": "./browser.js",
+  "author": {
+    "name": "ArtskydJ",
+    "email": "josephdykstra@gmail.com"
+  },
+  "description": "Get the tap output from tape in your console, and exit with an appropriate exit code",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArtskydJ/"
+  },
+  "scripts": {
+    "test": "node test/server.js"
+  },
+  "dependencies": {
+    "shoe": "0.0.15",
+    "tap-finished": "0.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "chrome-location": "^1.2.1",
+    "tape": "^4.0.0"
+  }
+}
