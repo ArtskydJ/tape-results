@@ -7,7 +7,7 @@
     "name": "ArtskydJ",
     "email": "josephdykstra@gmail.com"
   },
-  "description": "Get the tap output from tape in your console, and exit with an appropriate exit code",
+  "description": "Get the tap output from the browser to your console, and exit with an appropriate exit code",
   "keywords": [],
   "repository": {
     "type": "git",
