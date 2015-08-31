@@ -1,7 +1,7 @@
 tape-results
 =========
 
-Get the tap output from tape in your console, and exit with an appropriate exit code.
+Get the tap output from the browser to your console, and exit with an appropriate exit code
 
 [![Build Status](https://travis-ci.org/ArtskydJ/tape-results.svg)](https://travis-ci.org/ArtskydJ/tape-results)
 [![Dependency Status](https://david-dm.org/artskydj/tape-results.svg)](https://david-dm.org/artskydj/tape-results)
