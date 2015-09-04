@@ -21,7 +21,7 @@
     "tap-finished": "0.0.1"
   },
   "devDependencies": {
-    "browserify": "^10.2.4",
+    "browserify": "^11.0.1",
     "chrome-location": "^1.2.1",
     "firefox-location": "^1.0.1",
     "tape": "^4.0.0"
