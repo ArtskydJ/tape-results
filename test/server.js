@@ -2,9 +2,9 @@ var browserify = require('browserify')
 var fs = require('fs')
 var results = require('../index.js')
 var spawn  = require('child_process').spawn
-var browser = require('chrome-location') || require('firefox-location')
+var browser = process.env.TRAVIS ? require('firefox-location') : require('chrome-location')
 
-if (!browser) throw new Error('No browser found!')
+if (typeof browser === 'object') throw new Error('No browser found!')
 
 var clientTestFile = process.argv[2]
 if (!clientTestFile) throw new Error('no test file provided')
