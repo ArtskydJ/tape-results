@@ -70,11 +70,9 @@ before_install:
 Then, in your server code, add this:
 
 ```js
-var spawn  = require('child_process').spawn
-var firefox = require('firefox-location')
-if (!firefox) throw new Error('Firefox was not found!')
+var launch  = require('opener')
 
-spawn(firefox, ['http://localhost:' + port + '/'])
+launch('http://localhost:' + port + '/')
 ```
 
 # install
