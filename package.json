@@ -14,7 +14,8 @@
     "url": "https://github.com/ArtskydJ/tape-results"
   },
   "scripts": {
-    "test": "node test/assert-server.js pass && node test/assert-server.js fail"
+    "pretest": "browserify test/src/fail.js -d -o test/serve/fail-bundle.js && browserify test/src/pass.js -d -o test/serve/pass-bundle.js",
+    "test": "node test/server.js pass.html && (node test/server.js fail.html && exit 1 || exit 0)"
   },
   "dependencies": {
     "shoe": "0.0.15",
@@ -22,8 +23,8 @@
   },
   "devDependencies": {
     "browserify": "^11.0.1",
-    "chrome-location": "^1.2.1",
-    "firefox-location": "^1.0.1",
+    "ecstatic": "^1.1.3",
+    "opener": "^1.4.1",
     "tape": "^4.0.0"
   }
 }

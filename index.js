@@ -16,6 +16,7 @@ module.exports = function node(server) {
 	sock.install(server, '/tap-stream')
 
 	function exitOnResults(results) {
+		server.close()
 		var exitCode = Number(!results.ok)
 		process.exit(exitCode)
 	}

@@ -1,24 +1,14 @@
-var browserify = require('browserify')
-var fs = require('fs')
+var http = require('http')
+var ecstatic = require('ecstatic')
 var results = require('../index.js')
-var spawn  = require('child_process').spawn
-var browser = process.env.TRAVIS ? require('firefox-location') : require('chrome-location')
-
-if (typeof browser === 'object') throw new Error('No browser found!')
+var launch = require('opener')
 
 var clientTestFile = process.argv[2]
 if (!clientTestFile) throw new Error('no test file provided')
-var server = results()
-var port = server.address().port
-var template = fs.readFileSync(__dirname + '/template.html', { encoding: 'utf-8' })
 
-browserify(clientTestFile).bundle(function (err, buf) {
-	if (err) throw err
-	var html = template.replace('CODE', buf.toString())
+var server = http.createServer(ecstatic({ root: __dirname + '/serve' }))
+var port = 1024 + Math.floor(Math.random() * 8985)
+server.listen(port)
+results(server)
 
-	server.on('request', function (req, res) {
-		res.end(html)
-	})
-
-	spawn(browser, ['http://localhost:' + port + '/'])
-})
+launch('http://localhost:' + port + '/' + clientTestFile)
