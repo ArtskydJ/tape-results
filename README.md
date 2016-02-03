@@ -4,8 +4,6 @@ tape-results
 Get the tap output from the browser to your console, and exit with an appropriate exit code
 
 [![Build Status](https://travis-ci.org/ArtskydJ/tape-results.svg)](https://travis-ci.org/ArtskydJ/tape-results)
-[![Dependency Status](https://david-dm.org/artskydj/tape-results.svg)](https://david-dm.org/artskydj/tape-results)
-[![devDependency Status](https://david-dm.org/artskydj/tape-results/dev-status.svg)](https://david-dm.org/artskydj/tape-results#info=devDependencies)
 
 Like [smokestack](https://github.com/hughsk/smokestack) but it allows you to write your own server code.
 
