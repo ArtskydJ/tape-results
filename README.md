@@ -1,7 +1,7 @@
 tape-results
 =========
 
-Get the tap output from the browser to your console, and exit with an appropriate exit code
+> Get the tap output from the browser to your console, and exit with an appropriate exit code
 
 [![Build Status](https://travis-ci.org/ArtskydJ/tape-results.svg)](https://travis-ci.org/ArtskydJ/tape-results)
 
@@ -9,30 +9,49 @@ Like [smokestack](https://github.com/hughsk/smokestack) but it allows you to wri
 
 # example
 
-*browser-test.js*
+Write your tests for the browser:
+
 ```js
+// test.js
 var test = require('tape')
 var results = require('tape-results')
-
+var xhr = require('xhr')
 results(test)
 
-test('thing', function (t) {
-	t.pass('hi')
+test('running in the browser', function (t) {
+	t.notEqual(document, undefined)
 	t.end()
+})
+
+test('serving index.html', function (t) {
+	xhr('/index.html', function (err, res, body) {
+		t.ifError(err)
+		t.ok(res)
+		t.notEqual(body.indexOf('meta charset'), -1, 'found the text "meta charset"')
+		t.end()
+	})
 })
 ```
 
-*server.js*
+Write your code for the server:
 ```js
+// server.js
 var results = require('tape-results')
 var ecstatic = require('ecstatic')
 
 var server = results()
-var requestHandler = ecstatic(__dirname + '/public' )
-server.on('request', requestHandler)
+server.on('request', ecstatic({ root: __dirname }))
 
-var addr = server.address()
-console.log('Server listening on ' + addr.address + ':' addr.port)
+var a = server.address()
+console.log('Server listening on ' + a.address + ':' a.port)
+```
+
+You'll need a page to run the test:
+```html
+<!DOCTYPE html>
+<title>test</title>
+<script src="/test.js"></script>
+<!-- this is valid html according to https://validator.w3.org/nu/#textarea -->
 ```
 
 # api
@@ -69,7 +88,6 @@ Then, in your server code, add this:
 
 ```js
 var launch  = require('opener')
-
 launch('http://localhost:' + port + '/')
 ```
 
